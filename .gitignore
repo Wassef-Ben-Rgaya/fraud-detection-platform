@@ -1,0 +1,63 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/raw/*
+data/processed/*
+
+# MLflow
+mlruns/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated AWS files
+lambda-layer.zip
+lambda-layer/
+
+# Generated results
+batch_aws_results.csv
+
+# Local agent/tool configuration
+.agents/
+.claude/
+
+# Python generated files
+__pycache__/
+*.pyc
+
+# Local MLflow artifacts
+mlruns/
+
+# ML model binaries
+mlflow/*.pkl

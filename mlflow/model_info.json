@@ -1,0 +1,66 @@
+{
+    "model": "RandomForest",
+    "version": "1.0.0",
+    "selection_metric": "f1_score",
+    "features": 32,
+    "feature_names": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7",
+        "v8",
+        "v9",
+        "v10",
+        "v11",
+        "v12",
+        "v13",
+        "v14",
+        "v15",
+        "v16",
+        "v17",
+        "v18",
+        "v19",
+        "v20",
+        "v21",
+        "v22",
+        "v23",
+        "v24",
+        "v25",
+        "v26",
+        "v27",
+        "v28",
+        "amount_scaled",
+        "time_scaled",
+        "hour_of_day",
+        "amount_zscore"
+    ],
+    "metrics": {
+        "f1_score": 0.8404,
+        "precision": 0.8778,
+        "recall": 0.8061,
+        "auc_roc": 0.9796
+    },
+    "dataset": {
+        "total_transactions": 284807,
+        "fraud_transactions": 492,
+        "legitimate_transactions": 284315,
+        "fraud_rate": "0.173%"
+    },
+    "training": {
+        "train_transactions_before_smote": 227845,
+        "test_transactions": 56962,
+        "train_transactions_after_smote": 454902,
+        "fraud_transactions_after_smote": 227451
+    },
+    "preprocessing": {
+        "amount_mean": 88.34961925093134,
+        "amount_std": 250.1196701352354,
+        "time_mean": 94813.85957508067,
+        "time_std": 47488.062585499334,
+        "amount_zscore_mean": 88.34961925093134,
+        "amount_zscore_std": 250.12010924018855
+    }
+}

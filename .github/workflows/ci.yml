@@ -1,19 +1,17 @@
-
 name: Fraud Detection CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   validate:
     name: Validate Python project
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,10 +23,23 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-api.txt
 
-      - name: Install API dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-api.txt
+          pip install pytest
 
       - name: Check Python syntax
         run: python -m compileall -q src tests
+
+      - name: Run model tests when artifacts are available
+        shell: bash
+        run: |
+          if [[ -f mlflow/best_model.pkl &&
+                -f mlflow/model_info.json &&
+                -f data/processed/preprocessing_params.pkl ]]; then
+            pytest -v tests/test_model.py
+          else
+            echo "Model artifacts are not available in this checkout."
+            echo "Model tests skipped; Python syntax check completed."
+          fi
